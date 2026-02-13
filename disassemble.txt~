@@ -1,0 +1,100 @@
+Dump of assembler code for function phase_1:
+=> 0x0000000000401440 <+0>:	sub    $0x8,%rsp
+   0x0000000000401444 <+4>:	lea    0x1e85(%rip),%rsi        # 0x4032d0
+   0x000000000040144b <+11>:	call   0x4019bd <strings_not_equal>
+   0x0000000000401450 <+16>:	test   %eax,%eax
+   0x0000000000401452 <+18>:	jne    0x401459 <phase_1+25>
+   0x0000000000401454 <+20>:	add    $0x8,%rsp
+   0x0000000000401458 <+24>:	ret
+   0x0000000000401459 <+25>:	call   0x401c96 <explode_bomb>
+   0x000000000040145e <+30>:	jmp    0x401454 <phase_1+20>
+End of assembler dump.
+rax            0x405b20            4217632
+rbx            0x7fffffffe478      140737488348280
+rcx            0x0                 0
+rdx            0x405b20            4217632
+rsi            0x6                 6
+rdi            0x405b20            4217632
+rbp            0x7fffffffe3f0      0x7fffffffe3f0
+rsp            0x7fffffffe348      0x7fffffffe348
+r8             0x409c07            4234247
+r9             0x0                 0
+r10            0x7fffffffe1e0      140737488347616
+r11            0x202               514
+r12            0x2                 2
+r13            0x0                 0
+r14            0x7ffff7ffd000      140737354125312
+r15            0x404cf8            4214008
+rip            0x401440            0x401440 <phase_1>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+k0             0x0                 0
+k1             0x0                 0
+k2             0x0                 0
+k3             0x0                 0
+k4             0x0                 0
+k5             0x0                 0
+k6             0x0                 0
+k7             0x0                 0
+fs_base        0x7ffff7ddc740      140737351894848
+gs_base        0x0                 0
+Examine memory: x/FMT ADDRESS.
+ADDRESS is an expression for the memory address to examine.
+FMT is a repeat count followed by a format letter and a size letter.
+Format letters are o(octal), x(hex), d(decimal), u(unsigned decimal),
+  t(binary), f(float), a(address), i(instruction), c(char), s(string)
+  and z(hex, zero padded on the left).
+Size letters are b(byte), h(halfword), w(word), g(giant, 8 bytes).
+The specified number of objects of the specified size are printed
+according to the format.  If a negative number is specified, memory is
+examined backward from the address.
+
+Defaults for format and size letters are those previously used.
+Default count is 1.  Default address is following last thing printed
+with this command or "print".
+0x405b20 <input_strings>:	"yippee"
+0x0000000000401444 in phase_1 ()
+=> 0x0000000000401444 <phase_1+4>:	48 8d 35 85 1e 00 00	lea    0x1e85(%rip),%rsi        # 0x4032d0
+0x000000000040144b in phase_1 ()
+=> 0x000000000040144b <phase_1+11>:	e8 6d 05 00 00     	call   0x4019bd <strings_not_equal>
+rax            0x405b20            4217632
+rbx            0x7fffffffe478      140737488348280
+rcx            0x0                 0
+rdx            0x405b20            4217632
+rsi            0x4032d0            4207312
+rdi            0x405b20            4217632
+rbp            0x7fffffffe3f0      0x7fffffffe3f0
+rsp            0x7fffffffe340      0x7fffffffe340
+r8             0x409c07            4234247
+r9             0x0                 0
+r10            0x7fffffffe1e0      140737488347616
+r11            0x202               514
+r12            0x2                 2
+r13            0x0                 0
+r14            0x7ffff7ffd000      140737354125312
+r15            0x404cf8            4214008
+rip            0x40144b            0x40144b <phase_1+11>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+k0             0x0                 0
+k1             0x0                 0
+k2             0x0                 0
+k3             0x0                 0
+k4             0x0                 0
+k5             0x0                 0
+k6             0x0                 0
+k7             0x0                 0
+fs_base        0x7ffff7ddc740      140737351894848
+gs_base        0x0                 0
+$1 = 4207312
+0x4032d0:	"You're trying to kidnap what I've rightfully stolen."

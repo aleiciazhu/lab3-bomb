@@ -1,0 +1,287 @@
+Dump of assembler code for function phase_1:
+=> 0x0000000000401440 <+0>:	sub    $0x8,%rsp            // Moving stack pointer down by 8
+   0x0000000000401444 <+4>:	lea    0x1e85(%rip),%rsi        # 0x4032d0        // Moving instruction address 0x4032d0 
+   0x000000000040144b <+11>:	call   0x4019bd <strings_not_equal>
+   0x0000000000401450 <+16>:	test   %eax,%eax
+   0x0000000000401452 <+18>:	jne    0x401459 <phase_1+25>
+   0x0000000000401454 <+20>:	add    $0x8,%rsp
+   0x0000000000401458 <+24>:	ret
+   0x0000000000401459 <+25>:	call   0x401c96 <explode_bomb>
+   0x000000000040145e <+30>:	jmp    0x401454 <phase_1+20>
+End of assembler dump.
+Dump of assembler code for function phase_2:
+=> 0x0000000000401460 <+0>:	push   %rbx
+   0x0000000000401461 <+1>:	sub    $0x20,%rsp
+   0x0000000000401465 <+5>:	mov    %rsp,%rsi
+   0x0000000000401468 <+8>:	call   0x401cd4 <read_six_numbers>
+   0x000000000040146d <+13>:	cmpl   $0x1,(%rsp)
+   0x0000000000401471 <+17>:	jne    0x40147a <phase_2+26>
+   0x0000000000401473 <+19>:	mov    $0x1,%ebx
+   0x0000000000401478 <+24>:	jmp    0x4014a3 <phase_2+67>
+   0x000000000040147a <+26>:	call   0x401c96 <explode_bomb>
+   0x000000000040147f <+31>:	jmp    0x401473 <phase_2+19>
+   0x0000000000401481 <+33>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x000000000040148c <+44>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x0000000000401497 <+55>:	nopw   0x0(%rax,%rax,1)
+   0x00000000004014a0 <+64>:	add    $0x1,%ebx
+   0x00000000004014a3 <+67>:	cmp    $0x5,%ebx
+   0x00000000004014a6 <+70>:	jg     0x4014c1 <phase_2+97>
+   0x00000000004014a8 <+72>:	movslq %ebx,%rdx
+   0x00000000004014ab <+75>:	lea    -0x1(%rbx),%eax
+   0x00000000004014ae <+78>:	cltq
+   0x00000000004014b0 <+80>:	mov    (%rsp,%rax,4),%eax
+   0x00000000004014b3 <+83>:	add    %eax,%eax
+   0x00000000004014b5 <+85>:	cmp    %eax,(%rsp,%rdx,4)
+   0x00000000004014b8 <+88>:	je     0x4014a0 <phase_2+64>
+   0x00000000004014ba <+90>:	call   0x401c96 <explode_bomb>
+   0x00000000004014bf <+95>:	jmp    0x4014a0 <phase_2+64>
+   0x00000000004014c1 <+97>:	add    $0x20,%rsp
+   0x00000000004014c5 <+101>:	pop    %rbx
+   0x00000000004014c6 <+102>:	ret
+End of assembler dump.
+Breakpoint 4 at 0x401468
+Breakpoint 5 at 0x401471
+Breakpoint 6 at 0x401478
+Continuing.
+
+Breakpoint 4, 0x0000000000401468 in phase_2 ()
+=> 0x0000000000401468 <phase_2+8>:	e8 67 08 00 00     	call   0x401cd4 <read_six_numbers>
+rax            0x405b70            4217712
+rbx            0x7fffffffe478      140737488348280
+rcx            0x50                80
+rdx            0x405b70            4217712
+rsi            0x7fffffffe320      140737488347936
+rdi            0x405b70            4217712
+rbp            0x7fffffffe3f0      0x7fffffffe3f0
+rsp            0x7fffffffe320      0x7fffffffe320
+r8             0xffff              65535
+r9             0x0                 0
+r10            0x7fffffffe1e0      140737488347616
+r11            0x202               514
+r12            0x2                 2
+r13            0x0                 0
+r14            0x7ffff7ffd000      140737354125312
+r15            0x404cf8            4214008
+rip            0x401468            0x401468 <phase_2+8>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+k0             0x0                 0
+k1             0x0                 0
+k2             0x0                 0
+k3             0x0                 0
+k4             0x0                 0
+k5             0x0                 0
+k6             0x0                 0
+k7             0x0                 0
+fs_base        0x7ffff7ddc740      140737351894848
+gs_base        0x0                 0
+32	 */
+33	
+34	FILE *infile;
+35	
+36	int main(int argc, char *argv[])
+37	{
+38	    char *input;
+39	
+40	    /* Note to self: remember to port this bomb to Windows and put a 
+41	     * fantastic GUI on it. */
+Dump of assembler code for function read_six_numbers:
+   0x0000000000401cd4 <+0>:	sub    $0x8,%rsp
+   0x0000000000401cd8 <+4>:	mov    %rsi,%rdx
+   0x0000000000401cdb <+7>:	lea    0x4(%rsi),%rcx
+   0x0000000000401cdf <+11>:	lea    0x14(%rsi),%rax
+   0x0000000000401ce3 <+15>:	push   %rax
+   0x0000000000401ce4 <+16>:	lea    0x10(%rsi),%rax
+   0x0000000000401ce8 <+20>:	push   %rax
+   0x0000000000401ce9 <+21>:	lea    0xc(%rsi),%r9
+   0x0000000000401ced <+25>:	lea    0x8(%rsi),%r8
+   0x0000000000401cf1 <+29>:	lea    0x1418(%rip),%rsi        # 0x403110
+   0x0000000000401cf8 <+36>:	mov    $0x0,%eax
+   0x0000000000401cfd <+41>:	call   0x401150 <__isoc99_sscanf@plt>
+   0x0000000000401d02 <+46>:	add    $0x10,%rsp
+   0x0000000000401d06 <+50>:	cmp    $0x5,%eax
+   0x0000000000401d09 <+53>:	jle    0x401d10 <read_six_numbers+60>
+   0x0000000000401d0b <+55>:	add    $0x8,%rsp
+   0x0000000000401d0f <+59>:	ret
+   0x0000000000401d10 <+60>:	call   0x401c96 <explode_bomb>
+End of assembler dump.
+Undefined command: "man".  Try "help".
+0x0000000000401cd4 in read_six_numbers ()
+=> 0x0000000000401cd4 <read_six_numbers+0>:	48 83 ec 08        	sub    $0x8,%rsp
+rax            0x405b70            4217712
+rbx            0x7fffffffe478      140737488348280
+rcx            0x50                80
+rdx            0x405b70            4217712
+rsi            0x7fffffffe320      140737488347936
+rdi            0x405b70            4217712
+rbp            0x7fffffffe3f0      0x7fffffffe3f0
+rsp            0x7fffffffe318      0x7fffffffe318
+r8             0xffff              65535
+r9             0x0                 0
+r10            0x7fffffffe1e0      140737488347616
+r11            0x202               514
+r12            0x2                 2
+r13            0x0                 0
+r14            0x7ffff7ffd000      140737354125312
+r15            0x404cf8            4214008
+rip            0x401cd4            0x401cd4 <read_six_numbers>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+k0             0x0                 0
+k1             0x0                 0
+k2             0x0                 0
+k3             0x0                 0
+k4             0x0                 0
+k5             0x0                 0
+k6             0x0                 0
+k7             0x0                 0
+fs_base        0x7ffff7ddc740      140737351894848
+gs_base        0x0                 0
+rax            0x405b70            4217712
+rbx            0x7fffffffe478      140737488348280
+rcx            0x50                80
+rdx            0x405b70            4217712
+rsi            0x7fffffffe320      140737488347936
+rdi            0x405b70            4217712
+rbp            0x7fffffffe3f0      0x7fffffffe3f0
+rsp            0x7fffffffe318      0x7fffffffe318
+r8             0xffff              65535
+r9             0x0                 0
+r10            0x7fffffffe1e0      140737488347616
+r11            0x202               514
+r12            0x2                 2
+r13            0x0                 0
+r14            0x7ffff7ffd000      140737354125312
+r15            0x404cf8            4214008
+rip            0x401cd4            0x401cd4 <read_six_numbers>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+k0             0x0                 0
+k1             0x0                 0
+k2             0x0                 0
+k3             0x0                 0
+k4             0x0                 0
+k5             0x0                 0
+k6             0x0                 0
+k7             0x0                 0
+fs_base        0x7ffff7ddc740      140737351894848
+gs_base        0x0                 0
+0x0000000000401cd8 in read_six_numbers ()
+=> 0x0000000000401cd8 <read_six_numbers+4>:	48 89 f2           	mov    %rsi,%rdx
+0x0000000000401cdb in read_six_numbers ()
+=> 0x0000000000401cdb <read_six_numbers+7>:	48 8d 4e 04        	lea    0x4(%rsi),%rcx
+0x0000000000401cdf in read_six_numbers ()
+=> 0x0000000000401cdf <read_six_numbers+11>:	48 8d 46 14        	lea    0x14(%rsi),%rax
+0x0000000000401ce3 in read_six_numbers ()
+=> 0x0000000000401ce3 <read_six_numbers+15>:	50                 	push   %rax
+0x0000000000401ce4 in read_six_numbers ()
+=> 0x0000000000401ce4 <read_six_numbers+16>:	48 8d 46 10        	lea    0x10(%rsi),%rax
+0x0000000000401ce8 in read_six_numbers ()
+=> 0x0000000000401ce8 <read_six_numbers+20>:	50                 	push   %rax
+0x0000000000401ce9 in read_six_numbers ()
+=> 0x0000000000401ce9 <read_six_numbers+21>:	4c 8d 4e 0c        	lea    0xc(%rsi),%r9
+0x0000000000401ced in read_six_numbers ()
+=> 0x0000000000401ced <read_six_numbers+25>:	4c 8d 46 08        	lea    0x8(%rsi),%r8
+0x0000000000401cf1 in read_six_numbers ()
+=> 0x0000000000401cf1 <read_six_numbers+29>:	48 8d 35 18 14 00 00	lea    0x1418(%rip),%rsi        # 0x403110
+0x0000000000401cf8 in read_six_numbers ()
+=> 0x0000000000401cf8 <read_six_numbers+36>:	b8 00 00 00 00     	mov    $0x0,%eax
+0x0000000000401cfd in read_six_numbers ()
+=> 0x0000000000401cfd <read_six_numbers+41>:	e8 4e f4 ff ff     	call   0x401150 <__isoc99_sscanf@plt>
+0x0000000000401150 in __isoc99_sscanf@plt ()
+=> 0x0000000000401150 <__isoc99_sscanf@plt+0>:	ff 25 42 3e 00 00  	jmp    *0x3e42(%rip)        # 0x404f98 <__isoc99_sscanf@got.plt>
+0x00007ffff7e37860 in __isoc99_sscanf () from /lib64/libc.so.6
+=> 0x00007ffff7e37860 <__isoc99_sscanf+0>:	55                 	push   %rbp
+0x00007ffff7e37861 in __isoc99_sscanf () from /lib64/libc.so.6
+=> 0x00007ffff7e37861 <__isoc99_sscanf+1>:	48 89 e5           	mov    %rsp,%rbp
+0x00007ffff7e37864 in __isoc99_sscanf () from /lib64/libc.so.6
+=> 0x00007ffff7e37864 <__isoc99_sscanf+4>:	41 55              	push   %r13
+#0  0x00007ffff7e37864 in __isoc99_sscanf () from /lib64/libc.so.6
+#1  0x0000000000401d02 in read_six_numbers ()
+#2  0x000000000040146d in phase_2 ()
+#3  0x0000000000401360 in main (argc=<optimized out>, argv=<optimized out>) at bomb.c:82
+0x7ffff7e37864 <__isoc99_sscanf+4>:	"AUI\211\375ATI\211\364SH\201", <incomplete sequence \354\260>
+0x405b70 <input_strings+80>:	"disassemble phase_2"
+0x403110:	"%d %d %d %d %d %d"
+Dump of assembler code for function phase_2:
+   0x0000000000401460 <+0>:	push   %rbx
+   0x0000000000401461 <+1>:	sub    $0x20,%rsp
+   0x0000000000401465 <+5>:	mov    %rsp,%rsi
+   0x0000000000401468 <+8>:	call   0x401cd4 <read_six_numbers>
+   0x000000000040146d <+13>:	cmpl   $0x1,(%rsp)
+   0x0000000000401471 <+17>:	jne    0x40147a <phase_2+26>
+   0x0000000000401473 <+19>:	mov    $0x1,%ebx
+   0x0000000000401478 <+24>:	jmp    0x4014a3 <phase_2+67>
+   0x000000000040147a <+26>:	call   0x401c96 <explode_bomb>
+   0x000000000040147f <+31>:	jmp    0x401473 <phase_2+19>
+   0x0000000000401481 <+33>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x000000000040148c <+44>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x0000000000401497 <+55>:	nopw   0x0(%rax,%rax,1)
+   0x00000000004014a0 <+64>:	add    $0x1,%ebx
+   0x00000000004014a3 <+67>:	cmp    $0x5,%ebx
+   0x00000000004014a6 <+70>:	jg     0x4014c1 <phase_2+97>
+   0x00000000004014a8 <+72>:	movslq %ebx,%rdx
+   0x00000000004014ab <+75>:	lea    -0x1(%rbx),%eax
+   0x00000000004014ae <+78>:	cltq
+   0x00000000004014b0 <+80>:	mov    (%rsp,%rax,4),%eax
+   0x00000000004014b3 <+83>:	add    %eax,%eax
+   0x00000000004014b5 <+85>:	cmp    %eax,(%rsp,%rdx,4)
+   0x00000000004014b8 <+88>:	je     0x4014a0 <phase_2+64>
+   0x00000000004014ba <+90>:	call   0x401c96 <explode_bomb>
+   0x00000000004014bf <+95>:	jmp    0x4014a0 <phase_2+64>
+   0x00000000004014c1 <+97>:	add    $0x20,%rsp
+   0x00000000004014c5 <+101>:	pop    %rbx
+   0x00000000004014c6 <+102>:	ret
+End of assembler dump.
+Starting program: /mnt/home/alezhu/cs105/lab3-bomb/bomb2/bomb psol1.txt
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, 0x0000000000401440 in phase_1 ()
+=> 0x0000000000401440 <phase_1+0>:	48 83 ec 08        	sub    $0x8,%rsp
+Program not restarted.
+Starting program: /mnt/home/alezhu/cs105/lab3-bomb/bomb2/bomb psol1.txt
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, 0x0000000000401440 in phase_1 ()
+=> 0x0000000000401440 <phase_1+0>:	48 83 ec 08        	sub    $0x8,%rsp
+Continuing.
+
+Breakpoint 2, 0x0000000000401e6e in phase_defused ()
+=> 0x0000000000401e6e <phase_defused+0>:	48 83 ec 68        	sub    $0x68,%rsp
+Continuing.
+
+Breakpoint 3, 0x0000000000401460 in phase_2 ()
+=> 0x0000000000401460 <phase_2+0>:	53                 	push   %rbx
+0x0000000000401461 in phase_2 ()
+=> 0x0000000000401461 <phase_2+1>:	48 83 ec 20        	sub    $0x20,%rsp
+0x0000000000401465 in phase_2 ()
+=> 0x0000000000401465 <phase_2+5>:	48 89 e6           	mov    %rsp,%rsi
+
+Breakpoint 4, 0x0000000000401468 in phase_2 ()
+=> 0x0000000000401468 <phase_2+8>:	e8 67 08 00 00     	call   0x401cd4 <read_six_numbers>
+0x000000000040146d in phase_2 ()
+=> 0x000000000040146d <phase_2+13>:	83 3c 24 01        	cmpl   $0x1,(%rsp)
+   0x7fffffffe320:	or     (%rax),%al
+0x7fffffffe320:	0x0000000a
+0x7fffffffe320:	0x0000000a	0x00000014
+0x7fffffffe320:	0x0000000a	0x00000014	0x0000001e	0x00000028
+0x7fffffffe330:	0x00000032	0x0000003c
+0x7fffffffe320:	0x0000000a	0x00000014	0x0000001e	0x00000028
+0x7fffffffe330:	0x00000032	0x0000003c	0xffffe478
