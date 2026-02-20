@@ -1,4 +1,4 @@
-Dump of assembler code for function phase_1:
+MDump of assembler code for function phase_1:
 => 0x0000000000401440 <+0>:	sub    $0x8,%rsp            // Moving stack pointer down by 8
    0x0000000000401444 <+4>:	lea    0x1e85(%rip),%rsi        # 0x4032d0        // Moving instruction address 0x4032d0 
    0x000000000040144b <+11>:	call   0x4019bd <strings_not_equal>
@@ -82,8 +82,7 @@ fs_base        0x7ffff7ddc740      140737351894848
 gs_base        0x0                 0
 32	 */
 33	
-34	FILE *infile;
-35	
+34	FILE *infile;35	
 36	int main(int argc, char *argv[])
 37	{
 38	    char *input;
@@ -182,42 +181,6 @@ k7             0x0                 0
 fs_base        0x7ffff7ddc740      140737351894848
 gs_base        0x0                 0
 0x0000000000401cd8 in read_six_numbers ()
-=> 0x0000000000401cd8 <read_six_numbers+4>:	48 89 f2           	mov    %rsi,%rdx
-0x0000000000401cdb in read_six_numbers ()
-=> 0x0000000000401cdb <read_six_numbers+7>:	48 8d 4e 04        	lea    0x4(%rsi),%rcx
-0x0000000000401cdf in read_six_numbers ()
-=> 0x0000000000401cdf <read_six_numbers+11>:	48 8d 46 14        	lea    0x14(%rsi),%rax
-0x0000000000401ce3 in read_six_numbers ()
-=> 0x0000000000401ce3 <read_six_numbers+15>:	50                 	push   %rax
-0x0000000000401ce4 in read_six_numbers ()
-=> 0x0000000000401ce4 <read_six_numbers+16>:	48 8d 46 10        	lea    0x10(%rsi),%rax
-0x0000000000401ce8 in read_six_numbers ()
-=> 0x0000000000401ce8 <read_six_numbers+20>:	50                 	push   %rax
-0x0000000000401ce9 in read_six_numbers ()
-=> 0x0000000000401ce9 <read_six_numbers+21>:	4c 8d 4e 0c        	lea    0xc(%rsi),%r9
-0x0000000000401ced in read_six_numbers ()
-=> 0x0000000000401ced <read_six_numbers+25>:	4c 8d 46 08        	lea    0x8(%rsi),%r8
-0x0000000000401cf1 in read_six_numbers ()
-=> 0x0000000000401cf1 <read_six_numbers+29>:	48 8d 35 18 14 00 00	lea    0x1418(%rip),%rsi        # 0x403110
-0x0000000000401cf8 in read_six_numbers ()
-=> 0x0000000000401cf8 <read_six_numbers+36>:	b8 00 00 00 00     	mov    $0x0,%eax
-0x0000000000401cfd in read_six_numbers ()
-=> 0x0000000000401cfd <read_six_numbers+41>:	e8 4e f4 ff ff     	call   0x401150 <__isoc99_sscanf@plt>
-0x0000000000401150 in __isoc99_sscanf@plt ()
-=> 0x0000000000401150 <__isoc99_sscanf@plt+0>:	ff 25 42 3e 00 00  	jmp    *0x3e42(%rip)        # 0x404f98 <__isoc99_sscanf@got.plt>
-0x00007ffff7e37860 in __isoc99_sscanf () from /lib64/libc.so.6
-=> 0x00007ffff7e37860 <__isoc99_sscanf+0>:	55                 	push   %rbp
-0x00007ffff7e37861 in __isoc99_sscanf () from /lib64/libc.so.6
-=> 0x00007ffff7e37861 <__isoc99_sscanf+1>:	48 89 e5           	mov    %rsp,%rbp
-0x00007ffff7e37864 in __isoc99_sscanf () from /lib64/libc.so.6
-=> 0x00007ffff7e37864 <__isoc99_sscanf+4>:	41 55              	push   %r13
-#0  0x00007ffff7e37864 in __isoc99_sscanf () from /lib64/libc.so.6
-#1  0x0000000000401d02 in read_six_numbers ()
-#2  0x000000000040146d in phase_2 ()
-#3  0x0000000000401360 in main (argc=<optimized out>, argv=<optimized out>) at bomb.c:82
-0x7ffff7e37864 <__isoc99_sscanf+4>:	"AUI\211\375ATI\211\364SH\201", <incomplete sequence \354\260>
-0x405b70 <input_strings+80>:	"disassemble phase_2"
-0x403110:	"%d %d %d %d %d %d"
 Dump of assembler code for function phase_2:
    0x0000000000401460 <+0>:	push   %rbx
    0x0000000000401461 <+1>:	sub    $0x20,%rsp
@@ -533,3 +496,238 @@ Breakpoint 3, 0x00000000004014c7 in phase_3 ()
 => 0x00000000004014d5 <phase_3+14>:	4c 8d 44 24 08     	lea    0x8(%rsp),%r8
 0x00000000004014da in phase_3 ()
 => 0x00000000004014da <phase_3+19>:	48 8d 35 a7 1b 00 00	lea    0x1ba7(%rip),%rsi        # 0x403088
+Dump of assembler code for function phase_3:
+   0x00000000004014c7 <+0>:	sub    $0x18,%rsp
+   0x00000000004014cb <+4>:	lea    0x7(%rsp),%rcx
+   0x00000000004014d0 <+9>:	lea    0xc(%rsp),%rdx
+   0x00000000004014d5 <+14>:	lea    0x8(%rsp),%r8
+   0x00000000004014da <+19>:	lea    0x1ba7(%rip),%rsi        # 0x403088     // the input into scanf is in rsi, gives the input format
+   0x00000000004014e1 <+26>:	mov    $0x0,%eax
+   0x00000000004014e6 <+31>:	call   0x401150 <__isoc99_sscanf@plt>
+   0x00000000004014eb <+36>:	cmp    $0x2,%eax
+   0x00000000004014ee <+39>:	jle    0x40150f <phase_3+72>
+   0x00000000004014f0 <+41>:	cmpl   $0x7,0xc(%rsp)
+   0x00000000004014f5 <+46>:	ja     0x401623 <phase_3+348>
+   0x00000000004014fb <+52>:	mov    0xc(%rsp),%eax
+   0x00000000004014ff <+56>:	lea    0x20ca(%rip),%rdx        # 0x4035d0
+   0x0000000000401506 <+63>:	movslq (%rdx,%rax,4),%rax
+   0x000000000040150a <+67>:	add    %rdx,%rax
+   0x000000000040150d <+70>:	jmp    *%rax
+   0x000000000040150f <+72>:	call   0x401c96 <explode_bomb>
+   0x0000000000401514 <+77>:	jmp    0x4014f0 <phase_3+41>
+   0x0000000000401516 <+79>:	cmpl   $0x344,0x8(%rsp)
+   0x000000000040151e <+87>:	jne    0x401534 <phase_3+109>
+   0x0000000000401520 <+89>:	mov    $0x64,%eax
+   0x0000000000401525 <+94>:	cmp    %al,0x7(%rsp)
+   0x0000000000401529 <+98>:	jne    0x401632 <phase_3+363>
+   0x000000000040152f <+104>:	add    $0x18,%rsp
+   0x0000000000401533 <+108>:	ret
+   0x0000000000401534 <+109>:	call   0x401c96 <explode_bomb>
+   0x0000000000401539 <+114>:	mov    $0x64,%eax
+   0x000000000040153e <+119>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401540 <+121>:	cmpl   $0x2d5,0x8(%rsp)
+   0x0000000000401548 <+129>:	jne    0x401551 <phase_3+138>
+   0x000000000040154a <+131>:	mov    $0x66,%eax
+   0x000000000040154f <+136>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401551 <+138>:	call   0x401c96 <explode_bomb>
+   0x0000000000401556 <+143>:	mov    $0x66,%eax
+   0x000000000040155b <+148>:	jmp    0x401525 <phase_3+94>
+   0x000000000040155d <+150>:	cmpl   $0x2fe,0x8(%rsp)
+   0x0000000000401565 <+158>:	jne    0x40156e <phase_3+167>
+   0x0000000000401567 <+160>:	mov    $0x6f,%eax
+   0x000000000040156c <+165>:	jmp    0x401525 <phase_3+94>
+   0x000000000040156e <+167>:	call   0x401c96 <explode_bomb>
+   0x0000000000401573 <+172>:	mov    $0x6f,%eax
+   0x0000000000401578 <+177>:	jmp    0x401525 <phase_3+94>
+   0x000000000040157a <+179>:	cmpl   $0x3c5,0x8(%rsp)
+   0x0000000000401582 <+187>:	jne    0x40158b <phase_3+196>
+   0x0000000000401584 <+189>:	mov    $0x67,%eax
+   0x0000000000401589 <+194>:	jmp    0x401525 <phase_3+94>
+   0x000000000040158b <+196>:	call   0x401c96 <explode_bomb>
+   0x0000000000401590 <+201>:	mov    $0x67,%eax
+   0x0000000000401595 <+206>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401597 <+208>:	cmpl   $0x29f,0x8(%rsp)
+   0x000000000040159f <+216>:	jne    0x4015ab <phase_3+228>
+   0x00000000004015a1 <+218>:	mov    $0x76,%eax
+   0x00000000004015a6 <+223>:	jmp    0x401525 <phase_3+94>
+   0x00000000004015ab <+228>:	call   0x401c96 <explode_bomb>
+   0x00000000004015b0 <+233>:	mov    $0x76,%eax
+   0x00000000004015b5 <+238>:	jmp    0x401525 <phase_3+94>
+   0x00000000004015ba <+243>:	cmpl   $0x292,0x8(%rsp)
+   0x00000000004015c2 <+251>:	jne    0x4015ce <phase_3+263>
+   0x00000000004015c4 <+253>:	mov    $0x73,%eax
+   0x00000000004015c9 <+258>:	jmp    0x401525 <phase_3+94>
+   0x00000000004015ce <+263>:	call   0x401c96 <explode_bomb>
+   0x00000000004015d3 <+268>:	mov    $0x73,%eax
+   0x00000000004015d8 <+273>:	jmp    0x401525 <phase_3+94>
+   0x00000000004015dd <+278>:	cmpl   $0x12e,0x8(%rsp)
+   0x00000000004015e5 <+286>:	jne    0x4015f1 <phase_3+298>
+   0x00000000004015e7 <+288>:	mov    $0x66,%eax
+   0x00000000004015ec <+293>:	jmp    0x401525 <phase_3+94>
+   0x00000000004015f1 <+298>:	call   0x401c96 <explode_bomb>
+   0x00000000004015f6 <+303>:	mov    $0x66,%eax
+   0x00000000004015fb <+308>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401600 <+313>:	cmpl   $0x345,0x8(%rsp)
+   0x0000000000401608 <+321>:	jne    0x401614 <phase_3+333>
+   0x000000000040160a <+323>:	mov    $0x6d,%eax
+   0x000000000040160f <+328>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401614 <+333>:	call   0x401c96 <explode_bomb>
+   0x0000000000401619 <+338>:	mov    $0x6d,%eax
+   0x000000000040161e <+343>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401623 <+348>:	call   0x401c96 <explode_bomb>
+   0x0000000000401628 <+353>:	mov    $0x70,%eax
+   0x000000000040162d <+358>:	jmp    0x401525 <phase_3+94>
+   0x0000000000401632 <+363>:	call   0x401c96 <explode_bomb>
+   0x0000000000401637 <+368>:	jmp    0x40152f <phase_3+104>
+End of assembler dump.
+Dump of assembler code for function phase_4:
+=> 0x0000000000401675 <+0>:	sub    $0x18,%rsp
+   0x0000000000401679 <+4>:	lea    0xc(%rsp),%rcx
+   0x000000000040167e <+9>:	lea    0x8(%rsp),%rdx
+   0x0000000000401683 <+14>:	lea    0x1a92(%rip),%rsi        # 0x40311c
+   0x000000000040168a <+21>:	mov    $0x0,%eax
+   0x000000000040168f <+26>:	call   0x401150 <__isoc99_sscanf@plt>
+   0x0000000000401694 <+31>:	cmp    $0x2,%eax
+   0x0000000000401697 <+34>:	jne    0x4016a7 <phase_4+50>
+   0x0000000000401699 <+36>:	mov    0xc(%rsp),%eax
+   0x000000000040169d <+40>:	cmp    $0x1,%eax
+   0x00000000004016a0 <+43>:	jle    0x4016a7 <phase_4+50>
+   0x00000000004016a2 <+45>:	cmp    $0x4,%eax
+   0x00000000004016a5 <+48>:	jle    0x4016ac <phase_4+55>
+   0x00000000004016a7 <+50>:	call   0x401c96 <explode_bomb>
+   0x00000000004016ac <+55>:	mov    0xc(%rsp),%esi
+   0x00000000004016b0 <+59>:	mov    $0x8,%edi
+   0x00000000004016b5 <+64>:	call   0x40163c <func4>
+   0x00000000004016ba <+69>:	cmp    %eax,0x8(%rsp)
+   0x00000000004016be <+73>:	jne    0x4016c5 <phase_4+80>
+   0x00000000004016c0 <+75>:	add    $0x18,%rsp
+   0x00000000004016c4 <+79>:	ret
+   0x00000000004016c5 <+80>:	call   0x401c96 <explode_bomb>
+   0x00000000004016ca <+85>:	jmp    0x4016c0 <phase_4+75>
+End of assembler dump.
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+
+Dump of assembler code for function phase_5:
+=> 0x00000000004016cc <+0>:	push   %rbx
+   0x00000000004016cd <+1>:	sub    $0x10,%rsp
+   0x00000000004016d1 <+5>:	mov    %rdi,%rbx
+   0x00000000004016d4 <+8>:	call   0x4019a7 <string_length>
+   0x00000000004016d9 <+13>:	cmp    $0x6,%eax
+   0x00000000004016dc <+16>:	jne    0x4016e5 <phase_5+25>
+   0x00000000004016de <+18>:	mov    $0x0,%eax
+   0x00000000004016e3 <+23>:	jmp    0x40171c <phase_5+80>
+   0x00000000004016e5 <+25>:	call   0x401c96 <explode_bomb>
+   0x00000000004016ea <+30>:	jmp    0x4016de <phase_5+18>
+   0x00000000004016ec <+32>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x00000000004016f7 <+43>:	nopw   0x0(%rax,%rax,1)
+   0x0000000000401700 <+52>:	movslq %eax,%rcx
+   0x0000000000401703 <+55>:	movzbl (%rbx,%rcx,1),%edx
+   0x0000000000401707 <+59>:	and    $0xf,%edx
+   0x000000000040170a <+62>:	lea    0x1edf(%rip),%rsi        # 0x4035f0 <array.0>
+   0x0000000000401711 <+69>:	movzbl (%rsi,%rdx,1),%edx
+   0x0000000000401715 <+73>:	mov    %dl,0x9(%rsp,%rcx,1)
+   0x0000000000401719 <+77>:	add    $0x1,%eax
+   0x000000000040171c <+80>:	cmp    $0x5,%eax
+   0x000000000040171f <+83>:	jle    0x401700 <phase_5+52>
+   0x0000000000401721 <+85>:	movb   $0x0,0xf(%rsp)
+   0x0000000000401726 <+90>:	lea    0x9(%rsp),%rdi
+   0x000000000040172b <+95>:	lea    0x195f(%rip),%rsi        # 0x403091
+   0x0000000000401732 <+102>:	call   0x4019bd <strings_not_equal>
+   0x0000000000401737 <+107>:	test   %eax,%eax
+   0x0000000000401739 <+109>:	jne    0x401741 <phase_5+117>
+   0x000000000040173b <+111>:	add    $0x10,%rsp
+   0x000000000040173f <+115>:	pop    %rbx
+   0x0000000000401740 <+116>:	ret
+   0x0000000000401741 <+117>:	call   0x401c96 <explode_bomb>
+   0x0000000000401746 <+122>:	jmp    0x40173b <phase_5+111>
+End of assembler dump.
+Dump of assembler code for function phase_6:
+=> 0x0000000000401748 <+0>:	push   %r12
+   0x000000000040174a <+2>:	push   %rbp
+   0x000000000040174b <+3>:	push   %rbx
+   0x000000000040174c <+4>:	sub    $0x50,%rsp
+   0x0000000000401750 <+8>:	lea    0x30(%rsp),%rsi
+   0x0000000000401755 <+13>:	call   0x401cd4 <read_six_numbers>
+   0x000000000040175a <+18>:	mov    $0x0,%ebp
+   0x000000000040175f <+23>:	jmp    0x4017a2 <phase_6+90>
+   0x0000000000401761 <+25>:	call   0x401c96 <explode_bomb>
+   0x0000000000401766 <+30>:	jmp    0x4017b6 <phase_6+110>
+   0x0000000000401768 <+32>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x0000000000401773 <+43>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x000000000040177e <+54>:	xchg   %ax,%ax
+   0x0000000000401780 <+56>:	add    $0x1,%ebx
+   0x0000000000401783 <+59>:	cmp    $0x5,%ebx
+   0x0000000000401786 <+62>:	jg     0x40179f <phase_6+87>
+   0x0000000000401788 <+64>:	movslq %ebp,%rax
+   0x000000000040178b <+67>:	movslq %ebx,%rdx
+   0x000000000040178e <+70>:	mov    0x30(%rsp,%rdx,4),%edi
+   0x0000000000401792 <+74>:	cmp    %edi,0x30(%rsp,%rax,4)
+   0x0000000000401796 <+78>:	jne    0x401780 <phase_6+56>
+   0x0000000000401798 <+80>:	call   0x401c96 <explode_bomb>
+   0x000000000040179d <+85>:	jmp    0x401780 <phase_6+56>
+   0x000000000040179f <+87>:	mov    %r12d,%ebp
+   0x00000000004017a2 <+90>:	cmp    $0x5,%ebp
+   0x00000000004017a5 <+93>:	jg     0x4017bf <phase_6+119>
+   0x00000000004017a7 <+95>:	movslq %ebp,%rax
+   0x00000000004017aa <+98>:	mov    0x30(%rsp,%rax,4),%eax
+   0x00000000004017ae <+102>:	sub    $0x1,%eax
+   0x00000000004017b1 <+105>:	cmp    $0x5,%eax
+   0x00000000004017b4 <+108>:	ja     0x401761 <phase_6+25>
+   0x00000000004017b6 <+110>:	lea    0x1(%rbp),%r12d
+   0x00000000004017ba <+114>:	mov    %r12d,%ebx
+   0x00000000004017bd <+117>:	jmp    0x401783 <phase_6+59>
+   0x00000000004017bf <+119>:	mov    $0x0,%esi
+   0x00000000004017c4 <+124>:	jmp    0x4017e7 <phase_6+159>
+   0x00000000004017c6 <+126>:	cs nopw 0x0(%rax,%rax,1)
+   0x00000000004017d0 <+136>:	mov    0x8(%rdx),%rdx
+   0x00000000004017d4 <+140>:	add    $0x1,%eax
+   0x00000000004017d7 <+143>:	movslq %esi,%rcx
+   0x00000000004017da <+146>:	cmp    %eax,0x30(%rsp,%rcx,4)
+   0x00000000004017de <+150>:	jg     0x4017d0 <phase_6+136>
+   0x00000000004017e0 <+152>:	mov    %rdx,(%rsp,%rcx,8)
+   0x00000000004017e4 <+156>:	add    $0x1,%esi
+   0x00000000004017e7 <+159>:	cmp    $0x5,%esi
+   0x00000000004017ea <+162>:	jg     0x4017fa <phase_6+178>
+   0x00000000004017ec <+164>:	mov    $0x1,%eax
+   0x00000000004017f1 <+169>:	lea    0x3e38(%rip),%rdx        # 0x405630 <node1>
+   0x00000000004017f8 <+176>:	jmp    0x4017d7 <phase_6+143>
+   0x00000000004017fa <+178>:	mov    (%rsp),%rbx
+   0x00000000004017fe <+182>:	mov    %rbx,%rcx
+   0x0000000000401801 <+185>:	mov    $0x1,%eax
+   0x0000000000401806 <+190>:	jmp    0x401831 <phase_6+233>
+   0x0000000000401808 <+192>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x0000000000401813 <+203>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x000000000040181e <+214>:	xchg   %ax,%ax
+   0x0000000000401820 <+216>:	movslq %eax,%rdx
+   0x0000000000401823 <+219>:	mov    (%rsp,%rdx,8),%rdx
+   0x0000000000401827 <+223>:	mov    %rdx,0x8(%rcx)
+   0x000000000040182b <+227>:	add    $0x1,%eax
+   0x000000000040182e <+230>:	mov    %rdx,%rcx
+   0x0000000000401831 <+233>:	cmp    $0x5,%eax
+   0x0000000000401834 <+236>:	jle    0x401820 <phase_6+216>
+   0x0000000000401836 <+238>:	movq   $0x0,0x8(%rcx)
+   0x000000000040183e <+246>:	mov    $0x0,%ebp
+   0x0000000000401843 <+251>:	jmp    0x401867 <phase_6+287>
+   0x0000000000401845 <+253>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x0000000000401850 <+264>:	data16 cs nopw 0x0(%rax,%rax,1)
+   0x000000000040185b <+275>:	nopl   0x0(%rax,%rax,1)
+   0x0000000000401860 <+280>:	mov    0x8(%rbx),%rbx
+   0x0000000000401864 <+284>:	add    $0x1,%ebp
+   0x0000000000401867 <+287>:	cmp    $0x4,%ebp
+   0x000000000040186a <+290>:	jg     0x40187d <phase_6+309>
+   0x000000000040186c <+292>:	mov    0x8(%rbx),%rax
+   0x0000000000401870 <+296>:	mov    (%rax),%eax
+   0x0000000000401872 <+298>:	cmp    %eax,(%rbx)
+   0x0000000000401874 <+300>:	jle    0x401860 <phase_6+280>
+   0x0000000000401876 <+302>:	call   0x401c96 <explode_bomb>
+   0x000000000040187b <+307>:	jmp    0x401860 <phase_6+280>
+   0x000000000040187d <+309>:	add    $0x50,%rsp
+   0x0000000000401881 <+313>:	pop    %rbx
+   0x0000000000401882 <+314>:	pop    %rbp
+   0x0000000000401883 <+315>:	pop    %r12
+   0x0000000000401885 <+317>:	ret
+End of assembler dump.
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+
